@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.StudentMapper">
+    <select id="findStudent" resultType="com.pojo.Student">
+        select * from student limit #{page},#{pageSize}
+    </select>
+
+    <delete id="deleteStudent">
+        delete from student where id = #{id}
+    </delete>
+
+    <select id="findById" resultType="com.pojo.Student">
+        select * from student where id = #{id}
+    </select>
+
+    <update id="updateStudent">
+        update student
+        set s_name=#{s_name} ,age = #{age}, birth = #{birth}, r_id = #{r_id}
+        where id = #{id}
+    </update>
+
+    <select id="countStudent" resultType="java.lang.Integer">
+        select count(*) from student
+    </select>
+
+</mapper>
